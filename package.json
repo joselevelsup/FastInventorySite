@@ -1,0 +1,16 @@
+{
+  "name": "fastinventory",
+  "version": "0.0.1-rc",
+  "description": "Fast Inventory site using FEAN Stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "firebase": "^2.4.2"
+  }
+}
