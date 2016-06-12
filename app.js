@@ -6,10 +6,10 @@ var bodyParser = require("body-parser"); //To parse our data and able to sort it
 var mysql = require('mysql');
 var passport = require("passport").Strategy;
 var db = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'skipmaster12',
-  database : 'fastinventory'
+  host     : 'us-cdbr-iron-east-04.cleardb.net',
+  user     : 'b5d127ddf8a0e1',
+  password : 'fef737ec',
+  database : 'heroku_e330f5bdc6c95f4'
 });
 
 db.connect();
@@ -17,14 +17,6 @@ db.connect();
 app.use(express.static(__dirname + '/client')); //Serves the necessary files for the frontend
 app.use(bodyParser.urlencoded({'extended':'true'})); //Telling the site that the data coming in, to be translated to the UTF-8 library
 app.use(bodyParser.json()); //Get the data in JSON format
-
-function loggedin(val){
-  if(val){
-    return true;
-  } else{
-    return false;
-  }
-}
 
 //Once the link to the site is typed in the url bar, we serve this page. Angularjs will handle the rest of the routing
 app.get("/", function(request, respond){
