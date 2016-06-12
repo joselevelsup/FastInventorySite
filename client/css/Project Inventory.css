@@ -1,0 +1,55 @@
+﻿/* 
+ * Defines the classes used for project inventory
+ */
+
+/*
+ * Project specific classes
+ */
+.container{
+    position:relative;
+    padding: 0 3.75%;
+}
+
+.header{
+    height:105px;
+}
+
+.header.logo {
+    position:absolute;
+    top:20px;
+    height:60px;
+    width:auto;
+}
+
+.header.menu{
+    position:absolute;
+    right:0;
+    bottom:0;
+    list-style:none;
+    height:auto;
+    margin:10px;
+}
+
+.ticker{
+    height:20px;
+    background-color:#19388A;
+    margin-bottom:10px;
+}
+
+.content.textarea{
+    border:1px solid #000000;
+    background-color:#FAFAFA;
+    margin-bottom:20px;
+}
+
+.footer{
+    position:absolute;
+    bottom:0;
+    height:30px;
+    padding:10px 2% 0 0;
+    width:98%;
+    background-color:#DEDEDE;
+    text-align:right;
+    color:#5A5A5A;
+}
+

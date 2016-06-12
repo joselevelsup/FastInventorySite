@@ -1,0 +1,109 @@
+﻿/**
+ * Contains the main styles for tags
+ */
+
+body {
+    margin:0;
+    padding:0;
+    font-family:"montserratlight", sans-serif;
+    font-size:1em;
+}
+
+h1, h2, h3{
+    color:#FFC425;
+    margin:0;
+    padding:8px 10px;
+    background-color:#19388A;
+}
+
+h1{
+    font-size:2.3em;
+}
+
+h2{
+    font-size:2em;
+}
+
+h3{
+    font-size:1.25em;
+}
+
+p{
+    padding:8px 10px;
+}
+
+a.clean{
+    font-style:normal;
+    text-decoration:none;
+    color:inherit;
+}
+
+/* Horizontal list */
+
+ul.horizontal, ul.horizontal li{
+    margin:0;
+    padding:0;
+}
+
+ul.horizontal li{
+    display:inline-block;
+    padding: 0 40px 0 0;
+}
+
+ul.horizontal li.selected{
+    font-weight:bold;
+}
+
+/* Form Layout */
+
+button, input[type=submit]{
+    border:2px solid #A2B1D8;
+    background-color:#19388A;
+    color:#FFC425;
+    padding: 6px 10px;
+    font-weight:bold;
+}
+
+input, label, button{
+    font-size:1.2em;
+}
+
+form div{
+    padding:8px 10px;
+}
+
+form label{
+    display:inline-block;
+    width:100px;
+}
+
+form input{
+    display:inline-block;
+    width:200px;
+}
+
+/*
+ *  Tables
+ */
+
+table td, table th{
+    padding:20px;
+}
+
+table thead{
+    background-color:#19388A;
+    color:#FFC425;
+}
+
+table tbody{
+    background-color:#EAEAEA;
+}
+
+table a.clean{
+    color:#19388A;
+}
+
+table{
+    margin:auto;
+    margin-bottom:20px;
+}
