@@ -1,24 +1,19 @@
-angular.module("fastinventory", [])
-
-.controller("loginCtrl", function($scope, $http, $window, $timeout){
-  $scope.formUser = {
-    email:"",
-    pass: ""
-  }
-
-  $scope.loginUser = function(){
-    $http.post("/api/logindata", $scope.formUser)
-    .success(function(data){
-      $scope.creds = data;
-      if(data){
-        $timeout(function(){
-          $window.location.href = "/example";
-        }, 2000);
+$(document).ready(function(){
+  console.log("jquery ready");
+  $("#filter").click(function(){
+    $.ajax({
+      type: 'POST',
+      data:JSON.stringify({
+        itemtype: $("#itemtype option:selected").text(),
+        buidling: $("input[name=building]").val(),
+        room: $("input[name=room]").val()
+      }),
+      contentType:"application/json",
+      url:"http://localhost:8080/filter",
+      success: function(data){
+        console.log("Success");
+        window.location = data.redirect;
       }
-     })
-     .error(function(err){
-       console.log("Messed up: "+err);
-     });
-  }
-
+    });
+  });
 })

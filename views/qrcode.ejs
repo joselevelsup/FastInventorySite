@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fast Inventory - <%= title%></title>
+    <link rel="shortcut icon" href="css/mcicon.ico" />
+    <link rel="stylesheet" href="css/Overrides.css" />
+    <link rel="stylesheet" href="css/Project Inventory.css" />
+</head>
+<body>
+    <div class="container header">
+        <img class="header logo" src="css/MonroeCollegeLogo.svg" />
+        <ul class="header menu horizontal">
+            <li class="selected"><a class="clean" href="#">Home</a></li>
+            <li><a class="clean" href="/inventory">Inventory</a></li>
+        </ul>
+    </div>
+    <div class="container ticker">
+
+    </div>
+    <div class="container content">
+        <div class="content textarea">
+          <h1>QR Code</h1>
+          <p>All QR Codes are placed here catagorized with specifics</p>
+        </div>
+        <div class="content textarea">
+          <h3>Zero Client Code</h3>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=ZeroClient&amp;size=100x100" onclick="new=window.open('https://api.qrserver.com/v1/create-qr-code/?data=ZeroClient&amp;size=100x100');"/>
+
+          <h3>Desktop Code</h3>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=Desktop&amp;size=100x100" onclick="new=window.open('https://api.qrserver.com/v1/create-qr-code/?data=Desktop&amp;size=100x100');"/>
+
+          <h3>Workstation Code</h3>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=Workstation&amp;size=100x100" onclick="new=window.open('https://api.qrserver.com/v1/create-qr-code/?data=Workstation&amp;size=100x100');"/>
+        </div>
+    </div>
+    <div class="container footer">
+        Fast Inventory Project, &copy; Monroe College
+    </div>
+  </body>
+</html>

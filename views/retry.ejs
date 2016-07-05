@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Fast Inventory - <%= title%></title>
+      <link rel="shortcut icon" href="css/mcicon.ico" />
+      <link rel="stylesheet" href="css/Overrides.css" />
+      <link rel="stylesheet" href="css/Project Inventory.css" />
+  </head>
+  <body>
+      <div class="container header">
+          <img class="header logo" src="css/MonroeCollegeLogo.svg" />
+          <ul class="header menu horizontal">
+              <li><a class="clean" href="/">Home</a></li>
+              <li class="selected"><a class="clean" href="#">Login</a></li>
+          </ul>
+      </div>
+      <div class="container ticker">
+
+      </div>
+      <div class="container content">
+          <div class="content textarea">
+              <h1>User Login</h1>
+              <p>You require a valid username and password to access the system. If you cannot login please content the IT department.</p>
+              <form action="/login" method="post">
+                  <div>
+                      <label for="email">Monroe Email:</label>
+                      <input  type="text" name="username" />
+                  </div>
+                  <div>
+                      <label for="pass">Password:</label>
+                      <input type="password" name="password" />
+                  </div>
+                  <div>
+                      <button type="submit">Sign In</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+      <div class="container footer">
+          Fast Inventory Project, &copy; Monroe College
+      </div>
+  </body>
+</html>

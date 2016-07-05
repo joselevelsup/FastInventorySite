@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fast Inventory - <%= title%></title>
+    <link rel="shortcut icon" href="css/mcicon.ico" />
+    <link rel="stylesheet" href="css/Overrides.css" />
+    <link rel="stylesheet" href="css/Project Inventory.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <style>
+      thead {color:blue;}
+      tbody {color:green;}
+      tfoot {color:red;}
+      table,th,td {border:3px solid black;}
+    </style>
+  </head>
+  <body>
+    <div class="container header">
+        <img class="header logo" src="css/MonroeCollegeLogo.svg" />
+        <ul class="header menu horizontal">
+            <li><a class="clean" href="/">Home</a></li>
+            <li class="selected"><a class="clean" href="#">Inventory</a></li>
+            <li><a class="clean" href="/qrcodes">Manage QR Codes</a></li>
+            <li><a class="clean" href="/login">Logout</a></li>
+        </ul>
+    </div>
+    <div class="container ticker">
+
+    </div>
+    <h1>Inventory</h1>
+    <br/>
+    <div>
+      <label for="itemtype">Item Type</label>
+      <select id="itemtype">
+        <option>Zero-Client</option>
+        <option>Desktop</option>
+        <option>Workstation</option>
+      </select>
+      <label for="building">Building: </label> <input type="text" name="building"/>
+      <label for="room">Room Number: </label> <input type="text" name="room"/>
+      <button type="submit" id="filter">Filter</button>
+    </div>
+    <br/>
+    <table border="2" style="width:100%;height:10%">
+      <thead>
+        <tr>
+          <th>Item ID</th>
+          <th>Item Type</th>
+          <th>OS Version</th>
+          <th>Room Number</th>
+          <th>Quantity</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for (var i =0; i < inventory.length; i++){%>
+        <tr>
+          <td><%=inventory[i].itemID%></td>
+          <td><%=inventory[i].ItemType%></td>
+          <td><%=inventory[i].OSVersion%></td>
+          <td><%=inventory[i].RoomNumber%></td>
+          <td><%=inventory[i].Quantity%></td>
+          <td><%=inventory[i].StockDate%></td>
+        </tr>
+        <%}%>
+
+    </table>
+  </body>
+</html>
