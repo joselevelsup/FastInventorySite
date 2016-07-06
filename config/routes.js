@@ -78,7 +78,7 @@ module.exports = function(app, passport){
     var itemdata = app.get("item");
     var builddata = app.get("build");
     var roomdata = app.get("room");
-    db.query("select * from inventory where (ItemType='"+itemdata+"' and RoomNumber='"+roomdata+"') or (ItemType ='"+itemdata+"')", function(err, rows, fields){
+    db.query("select * from inventory where ItemType='"+itemdata+"' and RoomNumber='"+roomdata+"'", function(err, rows, fields){
       if(err){
         console.log(err);
       } else{
@@ -90,8 +90,4 @@ module.exports = function(app, passport){
     });
   });
 
-
-  app.post("/update", function(request, respond){
-    console.log("Body... "+JSON.stringify(request.body));
-  })
 }
