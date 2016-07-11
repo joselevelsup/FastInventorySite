@@ -22,15 +22,18 @@ module.exports = function(passport){
     passReqToCallback : true
   },
   function(request, username, password, done){
-    var user = "'"+username+"'";
-    var pass = "'"+password+"'";
-    db.query("select * from useraccount where username = "+user+" and passwd = "+pass+"", function(err, rows, fields){
+    db.query("select * from useraccount where username = '"+username+"' and passwd = '"+password+"'", function(err, rows, fields){
       if(err){
         console.log(err);
       }
       else{
-        console.log("Ok Login");
-        return done(null, rows);
+        if(rows.length < 1){
+          console.log("Failed Auth");
+          return done(null, "error");
+        }
+        else{
+          return done(null, rows);
+        }
       }
     });
   }))

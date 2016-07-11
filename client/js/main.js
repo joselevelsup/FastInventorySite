@@ -9,7 +9,7 @@ $(document).ready(function(){
         room: $("input[name=room]").val()
       }),
       contentType:"application/json",
-      url:"http://localhost:8080/filter",
+      url:"http://fastinventory.herokuapp.com/filter",
       success: function(data){
         console.log("Success");
         window.location = data.redirect;

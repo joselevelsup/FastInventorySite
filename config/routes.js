@@ -9,11 +9,12 @@ var db = mysql.createPool({
 module.exports = function(app, passport){
 
   function sessionCheck(request, response, next){
-    if(request.user){
-      console.log(request.user[0]);
-      next();
+    if(request.user == "error"){
+      console.log("line 13");
+      // next();
     } else {
-      response.redirect('/login');
+      next();
+      // response.redirect('/login');
     }
   };
 
