@@ -91,4 +91,29 @@ module.exports = function(app, passport){
     });
   });
 
+  app.post('/api/ionpost', function(request, respond){
+    console.log(request.body.quanitity+" "+request.body.itemModel);
+
+  });
+
+  app.post('/api/ionlogin', function(request, respond){
+    // console.log(request.body.email+" "+request.body.password);
+    var username = request.body.email;
+    var password = request.body.password;
+    console.log(username+" "+password);
+    db.query("select * from useraccount where username = '"+username+"' and passwd = '"+password+"'", function(err, rows, fields){
+      if(err){
+        console.log(err);
+      }
+      else{
+        if(rows.length < 1){
+          respond.send("fail");
+        }
+        else{
+          respond.send("pass");
+        }
+      }
+    });
+  })
+
 }
