@@ -93,7 +93,7 @@ module.exports = function(app, passport){
     console.log(request.body);
     var quantity = request.body.quantity;
     var itemName = request.body.itemModel;
-    var roomNumber = request.body.room;
+    var roomNumber = request.body.roomNumber;
 
     db.query("update inventory set Quantity = "+quantity+" where itemName = '"+itemName+"' and RoomNumber = '"+roomNumber+"'", function(err, result){
       if(err){
