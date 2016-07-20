@@ -91,7 +91,19 @@ module.exports = function(app, passport){
 
   app.post('/api/ionpost', function(request, respond){
     console.log(request.body);
-    respond.send("ok");
+    var quantity = request.body.quantity;
+    var itemName = request.body.itemModel;
+    var roomNumber = request.body.room;
+
+    db.query("update inventory set Quantity = "+quantity+" where itemName = '"+itemName+"' and RoomNumber = '"+roomNumber+"'", function(err, result){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log(result);
+        respond.send("Ok");
+      }
+    });
   });
 
   app.post('/api/ionlogin', function(request, respond){
