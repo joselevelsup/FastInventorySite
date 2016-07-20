@@ -100,8 +100,14 @@ module.exports = function(app, passport){
         console.log(err);
       }
       else{
-        console.log(result);
-        respond.send("Ok");
+      db.query("select Quantity, itemName, RoomNumber from inventory where itemName = '"+itemName+"'", function(err, rows){
+        if(err){
+          console.log(err);
+        }
+        else{
+          respond.send(rows);
+        }
+      });
       }
     });
   });
