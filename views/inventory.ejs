@@ -20,7 +20,7 @@
         <ul class="header menu horizontal">
             <li><a class="clean" href="/">Home</a></li>
             <li class="selected"><a class="clean" href="#">Inventory</a></li>
-            <li><a class="clean" href="/qrcodes">Manage QR Codes</a></li>
+            <li><a class="clean" href="/additem">Add Item</a></li>
             <li><a class="clean" href="/login">Logout</a></li>
         </ul>
     </div>
@@ -32,7 +32,7 @@
     <div>
       <label for="itemtype">Item Type</label>
       <select id="itemtype">
-        <option>Zero-Client</option>
+        <option>Thin-Client</option>
         <option>Desktop</option>
         <option>Workstation</option>
       </select>
@@ -46,10 +46,12 @@
         <tr>
           <th>Item ID</th>
           <th>Item Type</th>
+          <th>Item Name</th>
           <th>OS Version</th>
           <th>Room Number</th>
           <th>Quantity</th>
           <th>Date</th>
+          <th>QR Code</th>
         </tr>
       </thead>
       <tbody>
@@ -57,10 +59,12 @@
         <tr>
           <td><%=inventory[i].itemID%></td>
           <td><%=inventory[i].ItemType%></td>
+          <td><%=inventory[i].itemName%></td>
           <td><%=inventory[i].OSVersion%></td>
           <td><%=inventory[i].RoomNumber%></td>
           <td><%=inventory[i].Quantity%></td>
           <td><%=inventory[i].StockDate%></td>
+          <td><img src="https://api.qrserver.com/v1/create-qr-code/?data=<%=inventory[i].itemName%>&amp;size=100x100"/></td>
         </tr>
         <%}%>
 

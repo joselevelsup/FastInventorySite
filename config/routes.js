@@ -11,10 +11,8 @@ module.exports = function(app, passport){
   function sessionCheck(request, response, next){
     if(request.user == "error"){
       console.log("line 13");
-      // next();
     } else {
       next();
-      // response.redirect('/login');
     }
   };
 
@@ -44,15 +42,15 @@ module.exports = function(app, passport){
     });
   });
 
-  app.get("/login/retry", function(request, respond){
+  app.get("/retry", function(request, respond){
     respond.render("retry.ejs", {
       title: "Retry Login"
     });
   });
 
-  app.get("/qrcodes", function(request, respond){
-    respond.render("qrcode.ejs", {
-      title: "QRCodes",
+  app.get("/additem", function(request, respond){
+    respond.render("additem.ejs", {
+      title: "Add Item",
     })
   });
 
@@ -92,15 +90,13 @@ module.exports = function(app, passport){
   });
 
   app.post('/api/ionpost', function(request, respond){
-    console.log(request.body.quanitity+" "+request.body.itemModel);
-
+    console.log(request.body);
+    respond.send("ok");
   });
 
   app.post('/api/ionlogin', function(request, respond){
-    // console.log(request.body.email+" "+request.body.password);
     var username = request.body.email;
     var password = request.body.password;
-    console.log(username+" "+password);
     db.query("select * from useraccount where username = '"+username+"' and passwd = '"+password+"'", function(err, rows, fields){
       if(err){
         console.log(err);
