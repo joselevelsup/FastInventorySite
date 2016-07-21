@@ -1,9 +1,9 @@
 var LocalStrategy = require("passport-local").Strategy;
 var mysql = require('mysql');
 var db = mysql.createPool({
-  host     : 'us-cdbr-iron-east-04.cleardb.net',
-  user     : 'b5d127ddf8a0e1',
-  password : 'fef737ec',
+  host     : '',
+  user     : '',
+  password : '',
   database : 'heroku_e330f5bdc6c95f4'
 });
 
