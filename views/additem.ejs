@@ -10,8 +10,10 @@
     <div class="container header">
         <img class="header logo" src="css/MonroeCollegeLogo.svg" />
         <ul class="header menu horizontal">
-            <li class="selected"><a class="clean" href="#">Home</a></li>
+            <li><a class="clean" href="/">Home</a></li>
             <li><a class="clean" href="/inventory">Inventory</a></li>
+            <li class="selected"><a class="clean" href="#">Add Item</a></li>
+            <li><a class="clean" href="/">Log Out</a></li>
         </ul>
     </div>
     <div class="container ticker">
@@ -23,7 +25,23 @@
           <p>Add an Item to the Inventory List</p>
         </div>
         <div class="content textarea">
-          
+          <div>
+            <br/>
+              <label for="itemName">Unique Item Name: </label> <input type="text" name="itemName" style="margin-right:50px;"/>
+
+              <label for="room">Room Number it belongs to: </label> <input type="text" name="room" />
+              <label for="os">OS Version: </label> <input type="text" name="os" style="margin-right:50px;"/>
+              <label for="itemtype">Item Type</label>
+              <select id="itemtype">
+                <option>Zero-Client</option>
+                <option>Desktop</option>
+                <option>Workstation</option>
+              </select>
+          </div>
+          <br/>
+          <div>
+              <center><button type="submit">Add Item</button></center>
+          </div>
         </div>
     </div>
     <div class="container footer">
