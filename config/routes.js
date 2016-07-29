@@ -8,9 +8,9 @@ var db = mysql.createPool({
 
 module.exports = function(app, passport){
 
-  function sessionCheck(request, response, next){
+  function sessionCheck(request, respond, next){
     if(request.user == "error"){
-      console.log("line 13");
+      respond.redirect("/retry");
     } else {
       next();
     }
@@ -18,8 +18,7 @@ module.exports = function(app, passport){
 
   app.get("/", sessionCheck, function(request, respond){
     respond.render("index.ejs",{
-      title: "Home",
-      user: request.user
+      title: "Home"
     });
   });
 
@@ -57,12 +56,11 @@ module.exports = function(app, passport){
 
   app.post('/login', passport.authenticate('local-login', {
     successRedirect: "/inventory",
-    failureRedirect: "/login/retry"}),
+    failureRedirect: "/retry"}),
     function(request, respond){
   });
 
   app.post("/filter", function(request, respond, next){
-    // console.log(JSON.stringify(request.body));
     var itemData = request.body.itemtype;
     var buildData = request.body.buidling;
     var roomData = request.body.room;
@@ -89,13 +87,28 @@ module.exports = function(app, passport){
     });
   });
 
+  app.post("/newitem", function(request, respond, next){
+    var itemName = request.body.itemname;
+    var itemData = request.body.itemtype;
+    var roomData = request.body.room;
+    var osVersion = request.body.os;
+
+    db.query("insert into inventory(itemType, OSVersion, itemName, RoomNumber, Quantity, StockDate) values('"+itemData+"', '"+osVersion+"', '"+itemName+"', (select RoomNumber from building where RoomNumber = '"+roomData+"'), 0, curdate())", function(err, result){
+      if(err){
+        console.log(err);
+      }
+      else{
+        respond.send({redirect: '/inventory'});
+      }
+    })
+  });
+
   app.post('/api/ionpost', function(request, respond){
-    console.log(request.body);
     var quantity = request.body.quantity;
     var itemName = request.body.itemModel;
     var roomNumber = request.body.roomNumber;
 
-    db.query("update inventory set Quantity = "+quantity+" where itemName = '"+itemName+"' and RoomNumber = '"+roomNumber+"'", function(err, result){
+    db.query("update inventory set Quantity = "+quantity+", StockDate = curdate() where itemName = '"+itemName+"' and RoomNumber = '"+roomNumber+"'", function(err, result){
       if(err){
         console.log(err);
       }

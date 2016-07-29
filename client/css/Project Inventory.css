@@ -1,4 +1,4 @@
-﻿/* 
+﻿/*
  * Defines the classes used for project inventory
  */
 
@@ -53,3 +53,8 @@
     color:#5A5A5A;
 }
 
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}

@@ -16,4 +16,22 @@ $(document).ready(function(){
       }
     });
   });
+  $("#addItem").click(function(){
+    $.ajax({
+      type: 'POST',
+      data:JSON.stringify({
+        itemname: $("input[name=itemName]").val(),
+        itemtype: $("#itemtype option:selected").text(),
+        buidling: $("input[name=building]").val(),
+        room: $("input[name=room]").val(),
+        os: $("input[name=os]").val()
+      }),
+      contentType:"application/json",
+      url:"http://localhost:8080/newitem",
+      success: function(data){
+        console.log("Added Item");
+        window.location = data.redirect;
+      }
+    });
+  });
 })

@@ -5,12 +5,13 @@
     <link rel="shortcut icon" href="css/mcicon.ico" />
     <link rel="stylesheet" href="css/Overrides.css" />
     <link rel="stylesheet" href="css/Project Inventory.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <div class="container header">
         <img class="header logo" src="css/MonroeCollegeLogo.svg" />
         <ul class="header menu horizontal">
-            <li><a class="clean" href="/">Home</a></li>
             <li><a class="clean" href="/inventory">Inventory</a></li>
             <li class="selected"><a class="clean" href="#">Add Item</a></li>
             <li><a class="clean" href="/">Log Out</a></li>
@@ -40,7 +41,7 @@
           </div>
           <br/>
           <div>
-              <center><button type="submit">Add Item</button></center>
+              <center><button type="submit" id="addItem">Add Item</button></center>
           </div>
         </div>
     </div>
