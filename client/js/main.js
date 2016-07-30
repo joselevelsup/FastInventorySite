@@ -27,7 +27,7 @@ $(document).ready(function(){
         os: $("input[name=os]").val()
       }),
       contentType:"application/json",
-      url:"http://localhost:8080/newitem",
+      url:"http://fastinventory.herokuapp.com/newitem",
       success: function(data){
         console.log("Added Item");
         window.location = data.redirect;
