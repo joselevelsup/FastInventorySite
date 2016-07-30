@@ -35,7 +35,6 @@
         <option>Desktop</option>
         <option>Workstation</option>
       </select>
-      <label for="building">Building: </label> <input type="text" name="building"/>
       <label for="room">Room Number: </label> <input type="text" name="room"/>
       <button type="submit" id="filter">Filter</button>
     </div>
@@ -45,10 +44,12 @@
         <tr>
           <th>Item ID</th>
           <th>Item Type</th>
+          <th>Item Name</th>
           <th>OS Version</th>
           <th>Room Number</th>
           <th>Quantity</th>
           <th>Date</th>
+          <th>QR Code</th>
         </tr>
       </thead>
       <tbody>
@@ -56,10 +57,12 @@
         <tr>
           <td><%=inventory[i].itemID%></td>
           <td><%=inventory[i].ItemType%></td>
+          <td><%=inventory[i].itemName%></td>
           <td><%=inventory[i].OSVersion%></td>
           <td><%=inventory[i].RoomNumber%></td>
           <td><%=inventory[i].Quantity%></td>
           <td><%=inventory[i].StockDate%></td>
+          <td><img src="https://api.qrserver.com/v1/create-qr-code/?data=<%=inventory[i].itemName%>&amp;size=100x100"/></td>
         </tr>
         <%}%>
     </table>
